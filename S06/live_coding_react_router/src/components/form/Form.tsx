@@ -16,9 +16,10 @@ export default function Form() {
     password: "",
     confirmPassword: "",
   });
-
+  const [message, setMessage] = useState("");
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+
     setFormData({
       ...formData,
       [name]: value,
@@ -48,7 +49,13 @@ export default function Form() {
     // puisque {name, value} = e.target => donc on va pouvoir reccupere tout les valeur de mon formulaire
     // mettre à jour le state
     console.log("formData :>> ", formData);
-
+    if (formData.password !== formData.confirmPassword) {
+      setMessage("Password and confirm password don't match");
+      return;
+    } else {
+      setMessage("");
+    }
+    localStorage.setItem("user", JSON.stringify(formData));
     // apres l'action de l'utilisateur
     // on renitialise le state
     setFormData({
@@ -101,6 +108,7 @@ export default function Form() {
         value={formData.confirmPassword}
         onChange={handleChange}
       />
+      <span>{message}</span>
       <button type="submit">Send</button>
       {/* <input type="button" value="Submit" /> */}
     </form>
