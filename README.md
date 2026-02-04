@@ -2,7 +2,7 @@
 
 Ce dépôt a pour objectif d’assurer un suivi clair, structuré et progressif de la formation Concepteur Développeur d’Applications (CDA) à Angoulême, dans le cadre des cours que je dispense.
 
-Il sert à la fois :
+
 
 de référence pédagogique pour les apprenants,
 
